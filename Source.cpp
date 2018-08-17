@@ -70,17 +70,18 @@ bool compute(Mat src, int &a, int &b)
 	}
 	return false;
 }
-int main()
+int main(int argc, char **argv)
 {
-	cout <<endl<< "\t************************************" << endl;
-	cout <<endl<< "\t**Program move histogram to right!**" << endl;
-	cout <<endl<< "\t************************************" << endl<<endl;
+	cout << endl << "\t************************************" << endl;
+	cout << endl << "\t**Program move histogram to right!**" << endl;
+	cout << endl << "\t************************************" << endl << endl;
 
 	Mat src;
-	int a = 0, b =0;
+	int a = 0, b = 0;
 	int A = 0, B = 255;
-
-	src = imread("lenna1.png");
+	string path;
+	path = argv[1];
+	src = imread(path);
 	cvtColor(src, src, COLOR_BGR2GRAY);
 	Mat dst = src.clone();
 	drawHistogram(src, histSrc);
